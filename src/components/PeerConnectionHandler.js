@@ -8,7 +8,10 @@ import { formatBytes } from "../utils/common";
 import { Button } from "@mui/material";
 import { addDocumentReceived, addDocumentSent } from "../utils/cookies";
 
-const local_ip = "172.20.10.2"
+const local_ip = "172.20.10.2" 
+const local_base_url = `http://${local_ip}:3000`
+const deployed_base_url = "https://dehr-hacknosis24.vercel.app"
+const deployed = true
 
 function PeerReceiverHandler({receivedFiles,setReceivedFiles}){
 
@@ -28,7 +31,7 @@ React.useEffect( () => {
         return
     }
     peer.on("open", (id) => {
-        setUrl(`http://${local_ip}:3000/patient?peerId=`.concat(peer.id))
+        setUrl(((deployed?deployed_base_url:local_base_url)+`/patient?peerId=`).concat(peer.id))
         console.log(id)
       })
   
@@ -153,7 +156,7 @@ function PeerSenderHandler({fileToSend, setFileToSend, setSentFiles, sentFiles})
           return
       }
       peer.on("open", (id) => {
-          setUrl(`http://${local_ip}:3000/patientReceiver?peerId=`.concat(peer.id))
+          setUrl(((deployed?deployed_base_url:local_base_url)+`/patientReceiver?peerId=`).concat(peer.id))
           console.log(id)
         })
     
