@@ -1,5 +1,8 @@
 # DEHR : Distributed Electronic Health Records
 
+## Live Demo : https://dehr-hacknosis24.vercel.app/
+## Presentation Video : https://www.youtube.com/watch?v=DYfOj8bia-Y
+
 In our rapidly evolving digital world, healthcare systems are becoming more efficient—but there's a hidden cost.
 
 The data storage and processing demands of Electronic Health Records (EHR) are growing rapidly, and with them, so is the industry's energy consumption. The tech sector alone accounts for **3.7% of global greenhouse emissions**, rivaling the airline industry. As more medical devices hit the market, these emissions are expected to double by 2025. Our health shouldn't come at the cost of our planet.
