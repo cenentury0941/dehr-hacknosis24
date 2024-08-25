@@ -31,6 +31,8 @@ With Dehr, your medical data stays close to you, securely stored on your persona
 
 ## APIs used
 
+![Dehr Diagram](https://raw.githubusercontent.com/cenentury0941/Pictures/main/utild.png)
+
 ### OpenText Capture service
 Perform full page OCR on the received images to extract machine readable text.
 
