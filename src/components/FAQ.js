@@ -9,7 +9,7 @@ import Typography from '@mui/material/Typography';
 
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-export default function FAQ() {
+export default function About() {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleChange = (panel) => (event, isExpanded) => {
@@ -18,7 +18,7 @@ export default function FAQ() {
 
   return (
     <Container
-      id="faq"
+      id="about"
       sx={{
         pt: { xs: 4, sm: 12 },
         pb: { xs: 8, sm: 16 },
@@ -38,7 +38,7 @@ export default function FAQ() {
           textAlign: { sm: 'left', md: 'center' },
         }}
       >
-        Frequently asked questions
+        About
       </Typography>
       <Box sx={{ width: '100%' }}>
         <Accordion
@@ -51,7 +51,7 @@ export default function FAQ() {
             id="panel1d-header"
           >
             <Typography component="h3" variant="subtitle2">
-              How do I contact customer support if I have a question or issue?
+            What problem does Dehr solve in the healthcare industry?
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
@@ -60,10 +60,7 @@ export default function FAQ() {
               gutterBottom
               sx={{ maxWidth: { sm: '100%', md: '70%' } }}
             >
-              You can reach our customer support team by emailing
-              <Link> support@email.com </Link>
-              or calling our toll-free number. We&apos;re here to assist you
-              promptly.
+              Dehr addresses the excessive energy consumption and environmental impact associated with cloud-based Electronic Health Record (EHR) systems. It provides a more eco-friendly solution by allowing users to store and share their health records locally through peer-to-peer (P2P) communication, reducing the need for energy-hungry data centers while ensuring secure data handling.
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -77,7 +74,7 @@ export default function FAQ() {
             id="panel2d-header"
           >
             <Typography component="h3" variant="subtitle2">
-              Can I return the product if it doesn&apos;t meet my expectations?
+            How does Dehr reduce the carbon footprint associated with medical data storage?
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
@@ -86,9 +83,7 @@ export default function FAQ() {
               gutterBottom
               sx={{ maxWidth: { sm: '100%', md: '70%' } }}
             >
-              Absolutely! We offer a hassle-free return policy. If you&apos;re not
-              completely satisfied, you can return the product within [number of
-              days] days for a full refund or exchange.
+              Dehr minimizes carbon emissions by leveraging local storage and P2P data sharing, which avoids the significant energy usage of cloud storage solutions. By storing records on personal devices and facilitating direct communication over local networks, Dehr reduces the need for large-scale data centers, which are known to contribute heavily to global greenhouse gas emissions.
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -102,7 +97,7 @@ export default function FAQ() {
             id="panel3d-header"
           >
             <Typography component="h3" variant="subtitle2">
-              What makes your product stand out from others in the market?
+            What role do AI-driven analytics play in Dehr?
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
@@ -111,9 +106,7 @@ export default function FAQ() {
               gutterBottom
               sx={{ maxWidth: { sm: '100%', md: '70%' } }}
             >
-              Our product distinguishes itself through its adaptability, durability,
-              and innovative features. We prioritize user satisfaction and
-              continually strive to exceed expectations in every aspect.
+              AI-driven analytics in Dehr help summarize complex medical data, making it easier for patients to understand their health information. Additionally, AI is used to estimate energy consumption and carbon footprint generated from medical data handling, providing users with insights into their environmental impact and suggesting ways to reduce their carbon footprint.
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -127,7 +120,7 @@ export default function FAQ() {
             id="panel4d-header"
           >
             <Typography component="h3" variant="subtitle2">
-              Is there a warranty on the product, and what does it cover?
+            How does the data-sharing process work in Dehr?
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
@@ -136,10 +129,7 @@ export default function FAQ() {
               gutterBottom
               sx={{ maxWidth: { sm: '100%', md: '70%' } }}
             >
-              Yes, our product comes with a [length of warranty] warranty. It covers
-              defects in materials and workmanship. If you encounter any issues
-              covered by the warranty, please contact our customer support for
-              assistance.
+              In Dehr, data-sharing is facilitated through local networks. Healthcare professionals make the required health records available on a local area network, which patients can access by scanning a QR code. The data is then securely downloaded to the patient’s device. For sharing back with healthcare providers, patients can generate a QR code that professionals scan to retrieve the data directly to their systems.
             </Typography>
           </AccordionDetails>
         </Accordion>

@@ -8,7 +8,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import AppAppBar from '../components/AppAppBar';
 import Hero from '../components/Hero';
 import Highlights from '../components/Highlights';
-import FAQ from '../components/FAQ';
+import About from '../components/FAQ';
 import getLPTheme from './getLPTheme';
 import MobileOnly from './MobileOnly';
 import Features from '../components/Features';
@@ -23,10 +23,9 @@ export default function LandingPage() {
       <Hero />
       <Box sx={{ bgcolor: 'background.default' }}>
         <Divider />
-        <Highlights />
+        <Highlights/>
         <Divider />
-        <FAQ />
-        <MobileOnly />
+        <About />
       </Box>
     </ThemeProvider>
   );

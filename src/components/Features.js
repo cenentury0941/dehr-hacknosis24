@@ -95,15 +95,13 @@ export default function Features() {
 
           <div>
             <Typography component="h2" variant="h4" sx={{ color: 'text.primary' }}>
-              Product features
+              Welcome to DEHR
             </Typography>
             <Typography
               variant="body1"
               sx={{ color: 'text.secondary', mb: { xs: 2, sm: 4 } }}
             >
-              Provide a brief overview of the key features of the product. For
-              example, you could list the number of features, their types or
-              benefits, and add-ons.
+              Click below to send, receive and analyse documents and track and measure your environmental impact!
             </Typography>
           </div>
           

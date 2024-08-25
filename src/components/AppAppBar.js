@@ -15,9 +15,13 @@ import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import ToggleColorMode from './ToggleColorMode';
 
 import Sitemark from './SitemarkIcon';
+import { useNavigate } from 'react-router-dom';
+
+import logo from "./styles/images/logo.png";
 
 function AppAppBar({ mode, toggleColorMode }) {
   const [open, setOpen] = React.useState(false);
+  var navigate = useNavigate()
 
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
@@ -66,49 +70,9 @@ function AppAppBar({ mode, toggleColorMode }) {
           })}
         >
           <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', px: 0 }}>
-            <Sitemark />
-            <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-              <Button
-                variant="text"
-                color="info"
-                size="small"
-                onClick={() => scrollToSection('features')}
-              >
-                Features
-              </Button>
-              <Button
-                variant="text"
-                color="info"
-                size="small"
-                onClick={() => scrollToSection('testimonials')}
-              >
-                Testimonials
-              </Button>
-              <Button
-                variant="text"
-                color="info"
-                size="small"
-                onClick={() => scrollToSection('highlights')}
-              >
-                Highlights
-              </Button>
-              <Button
-                variant="text"
-                color="info"
-                size="small"
-                onClick={() => scrollToSection('pricing')}
-              >
-                Pricing
-              </Button>
-              <Button
-                variant="text"
-                color="info"
-                size="small"
-                onClick={() => scrollToSection('faq')}
-                sx={{ minWidth: 0 }}
-              >
-                FAQ
-              </Button>
+            
+            <Box sx={{ display: { xs: 'none', md: 'flex' } }} fullWidth>
+              <img src={logo} style={{height:"4vh",userSelect:"none"}}/>
             </Box>
           </Box>
           <Box
@@ -118,17 +82,32 @@ function AppAppBar({ mode, toggleColorMode }) {
               alignItems: 'center',
             }}
           >
-            <ToggleColorMode
-              data-screenshot="toggle-mode"
-              mode={mode}
-              toggleColorMode={toggleColorMode}
-            />
-            <Button color="primary" variant="text" size="small">
-              Sign in
-            </Button>
-            <Button color="primary" variant="contained" size="small">
-              Sign up
-            </Button>
+              <Button
+                variant="text"
+                color="info"
+                size="small"
+                onClick={() => navigate("/")}
+                style={{marginLeft:"auto"}}
+              >
+                Home
+              </Button>
+              <Button
+                variant="text"
+                color="info"
+                size="small"
+                onClick={() => window.location.href = "https://github.com/cenentury0941/dehr-hacknosis24"}
+              >
+                Repo
+              </Button>
+              <Button
+                variant="text"
+                color="info"
+                size="small"
+                onClick={() => {window.location.href = "https://www.youtube.com/watch?v=HDz9dSuAI4s"}}
+                sx={{ minWidth: 0 }}
+              >
+                Demo
+              </Button>
           </Box>
           <Box sx={{ display: { sm: 'flex', md: 'none' } }}>
             <IconButton aria-label="Menu button" onClick={toggleDrawer(true)}>

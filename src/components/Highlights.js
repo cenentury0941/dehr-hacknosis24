@@ -15,46 +15,46 @@ import ThumbUpAltRoundedIcon from '@mui/icons-material/ThumbUpAltRounded';
 const items = [
   {
     icon: <SettingsSuggestRoundedIcon />,
-    title: 'Adaptable performance',
+    title: 'Local Data Storage',
     description:
-      'Our product effortlessly adjusts to your needs, boosting efficiency and simplifying your tasks.',
+      'Allows users to store Electronic Health Records (EHR) directly on their personal devices, eliminating the need for cloud-based solutions and reducing energy consumption.',
   },
   {
     icon: <ConstructionRoundedIcon />,
-    title: 'Built to last',
+    title: 'Peer-to-Peer Data Sharing',
     description:
-      'Experience unmatched durability that goes above and beyond with lasting investment.',
+      'Facilitates secure medical data transfer over a local area network via QR code, ensuring data privacy and efficiency without relying on external servers.',
   },
   {
     icon: <ThumbUpAltRoundedIcon />,
-    title: 'Great user experience',
+    title: 'AI-Driven Medical Summaries',
     description:
-      'Integrate our product into your routine with an intuitive and easy-to-use interface.',
+      'Uses artificial intelligence to summarize complex health data, helping patients better understand their medical information in a concise and digestible format.',
   },
   {
     icon: <AutoFixHighRoundedIcon />,
-    title: 'Innovative functionality',
+    title: 'Carbon Footprint Tracking',
     description:
-      'Stay ahead with features that set new standards, addressing your evolving needs better than the rest.',
+      'Provides users with real-time analytics on energy consumption and carbon footprint associated with data usage, raising awareness of the environmental impact of digital healthcare solutions.',
   },
   {
     icon: <SupportAgentRoundedIcon />,
-    title: 'Reliable support',
+    title: 'Energy Consumption Projections',
     description:
-      'Count on our responsive customer support, offering assistance that goes beyond the purchase.',
+      'Offers insights into the power consumption of medical data handling, enabling users to make more informed decisions to minimize their energy usage and environmental impact.',
   },
   {
     icon: <QueryStatsRoundedIcon />,
-    title: 'Precision in every detail',
+    title: 'QR Code Access Control',
     description:
-      'Enjoy a meticulously crafted product where small touches make a significant impact on your overall experience.',
+      'Empowers patients and healthcare professionals to securely share and retrieve health records by scanning QR codes, streamlining the data-sharing process without external infrastructure.',
   },
 ];
 
 export default function Highlights() {
   return (
     <Box
-      id="highlights"
+      id="features"
       sx={{
         pt: { xs: 4, sm: 12 },
         pb: { xs: 8, sm: 16 },
@@ -78,12 +78,11 @@ export default function Highlights() {
           }}
         >
           <Typography component="h2" variant="h4">
-            Highlights
+            Features
           </Typography>
           <Typography variant="body1" sx={{ color: 'grey.400' }}>
-            Explore why our product stands out: adaptability, durability,
-            user-friendly design, and innovation. Enjoy reliable customer support and
-            precision in every detail.
+            Explore why DEHR stands out: adaptability, durability,
+            user-friendly design, and innovation.
           </Typography>
         </Box>
         <Grid container spacing={2.5}>

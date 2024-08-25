@@ -12,6 +12,9 @@ import { visuallyHidden } from '@mui/utils';
 import { styled } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
 
+import "./styles/hero.css"
+import cover from "./styles/images/cover.png";
+
 const StyledBox = styled('div')(({ theme }) => ({
   alignSelf: 'center',
   width: '100%',
@@ -20,7 +23,7 @@ const StyledBox = styled('div')(({ theme }) => ({
   borderRadius: theme.shape.borderRadius,
   outline: '1px solid',
   boxShadow: '0 0 12px 8px hsla(220, 25%, 80%, 0.2)',
-  backgroundImage: `url(${'/static/images/templates/templates-images/hero-light.png'})`,
+  backgroundImage: {cover},
   outlineColor: 'hsla(220, 25%, 80%, 0.5)',
   backgroundSize: 'cover',
   [theme.breakpoints.up('sm')]: {
@@ -29,7 +32,7 @@ const StyledBox = styled('div')(({ theme }) => ({
   },
   ...theme.applyStyles('dark', {
     boxShadow: '0 0 24px 12px hsla(210, 100%, 25%, 0.2)',
-    backgroundImage: `url(${'/static/images/templates/templates-images/hero-dark.png'})`,
+    backgroundImage: {cover},
     outlineColor: 'hsla(210, 100%, 80%, 0.1)',
   }),
 }));
@@ -40,7 +43,7 @@ export default function Hero() {
 
   return (
     <Box
-      id="hero"
+      id="home"
       sx={(theme) => ({
         width: '100%',
         backgroundRepeat: 'no-repeat',
@@ -98,9 +101,9 @@ export default function Hero() {
               width: { sm: '100%', md: '80%' },
             }}
           >
-            Explore our cutting-edge dashboard, delivering high-quality solutions
-            tailored to your needs. Elevate your experience with top-tier features
-            and services.
+            Dehr allows users to store their electronic health records on their personal devices and share it with their
+            healthcare practitioner using Peer-to-peer communication to enable a secure and eco-
+            friendly approach to handle their data.
           </Typography>
           <Stack
             direction={{ xs: 'column', sm: 'row' }}
@@ -109,21 +112,19 @@ export default function Hero() {
             sx={{ pt: 2, width: { xs: '100%', sm: '50%' } }}
           >
             <Button variant="contained" color="primary" fullWidth onClick={()=>{navigate("/doctor")}}>
-              For Doctors
+              Live Demo
             </Button>
-            <Button variant="outlined" color="primary" fullWidth onClick={()=>{navigate("/patient")}}>
-              For Patients
+            <Button variant="outlined" color="primary" fullWidth onClick={()=>{window.location.href = "https://github.com/cenentury0941/dehr-hacknosis24"}}>
+              Repository
             </Button>
           </Stack>
           <Typography variant="caption" sx={{ textAlign: 'center' }}>
-            By clicking &quot;Start now&quot; you agree to our&nbsp;
-            <Link href="#" color="primary">
-              Terms & Conditions
-            </Link>
-            .
+            
           </Typography>
         </Stack>
-        <StyledBox id="image" />
+        <StyledBox id="image">
+          <div className='coverBg'></div>
+          </StyledBox>
       </Container>
     </Box>
   );
