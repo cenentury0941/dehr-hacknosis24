@@ -103,7 +103,7 @@ function AppAppBar({ mode, toggleColorMode }) {
                 variant="text"
                 color="info"
                 size="small"
-                onClick={() => {window.location.href = "https://www.youtube.com/watch?v=HDz9dSuAI4s"}}
+                onClick={() => {window.location.href = "https://www.youtube.com/watch?v=DYfOj8bia-Y"}}
                 sx={{ minWidth: 0 }}
               >
                 Demo
