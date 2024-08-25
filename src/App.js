@@ -1,31 +1,52 @@
-import logo from './logo.svg';
 import './App.css';
 import React from 'react';
-import * as ReactDOM from "react-dom/client";
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Home from './pages/home';
 import LandingPage from './pages/LandingPage';
 import { BrowserView, MobileView } from 'react-device-detect';
-import MobileOnly from './pages/MobileOnly';
+import DoctorPortal from './pages/DoctorPortal';
+import PatientPortal from './pages/PatientPortal';
+import Ocr from './utils/opentext/ocr';
+import PatientReceiver from './pages/PatientReceiver';
+import { getCookieData, initCookies } from './utils/cookies';
 
 function App() {
+  
+  if(getCookieData() == null)
+  {
+    initCookies()
+  }
+
   const router = createBrowserRouter([
     {
       path: "/",
+      element: <LandingPage/>,
+    },
+    {
+      path: "/doctor",
+      element: <DoctorPortal />,
+    },
+    {
+      path: "/patient",
       element: <>
-      <BrowserView><MobileOnly /></BrowserView>
-      <MobileView><LandingPage/></MobileView>
+      <MobileView><PatientPortal/></MobileView>
+      <BrowserView><PatientPortal/></BrowserView>
       </>,
+    },
+    {
+      path: "/ocr",
+      element: <Ocr />
+    },
+    {
+      path: "/patientReceiver",
+      element: <PatientReceiver />
     },
   ]);
 
   return (
-    <React.StrictMode>
       <RouterProvider router={router} />
-    </React.StrictMode>
   );
 }
 

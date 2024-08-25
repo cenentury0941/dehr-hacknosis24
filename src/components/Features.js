@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import { Chip as MuiChip } from '@mui/material';
+import Co2Icon from '@mui/icons-material/Co2';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
@@ -16,30 +17,38 @@ import DevicesRoundedIcon from '@mui/icons-material/DevicesRounded';
 import EdgesensorHighRoundedIcon from '@mui/icons-material/EdgesensorHighRounded';
 import ViewQuiltRoundedIcon from '@mui/icons-material/ViewQuiltRounded';
 
+import {PeerReceiverHandler, PeerSenderHandler} from './PeerConnectionHandler';
+import FileListItem from './FileListItem';
+import ImageViewer from './ImageViewer';
+import ResultText from './ResultText';
+import { getCookieData } from '../utils/cookies';
+import CarbonFootprintHandler from './CarbonFootprintHandler';
+import CarbonImpactAnalysis from './CarbonImpactAnalysis';
+
 const items = [
   {
     icon: <ViewQuiltRoundedIcon />,
-    title: 'Dashboard',
+    title: 'Receive Documents',
     description:
-      'This item could provide a snapshot of the most important metrics or data points related to the product.',
+      'Receive documents from the patient\'s device',
     imageLight: 'url("/static/images/templates/templates-images/dash-light.png")',
     imageDark: 'url("/static/images/templates/templates-images/dash-dark.png")',
   },
   {
     icon: <EdgesensorHighRoundedIcon />,
-    title: 'Mobile integration',
+    title: 'Send Documents',
     description:
-      'This item could provide information about the mobile app version of the product.',
+      'Generate and send documents to the patient',
     imageLight: 'url("/static/images/templates/templates-images/mobile-light.png")',
     imageDark: 'url("/static/images/templates/templates-images/mobile-dark.png")',
   },
   {
-    icon: <DevicesRoundedIcon />,
-    title: 'Available on all platforms',
+    icon: <Co2Icon />,
+    title: 'Carbon Footprint',
     description:
-      'This item could let users know the product is available on all platforms, such as web, mobile, and desktop.',
-    imageLight: 'url("/static/images/templates/templates-images/devices-light.png")',
-    imageDark: 'url("/static/images/templates/templates-images/devices-dark.png")',
+      'View your carbon footprint from the transactions on this device',
+    imageLight: 'url("/static/images/templates/templates-images/mobile-light.png")',
+    imageDark: 'url("/static/images/templates/templates-images/mobile-dark.png")',
   },
 ];
 
@@ -65,7 +74,13 @@ const Chip = styled(MuiChip)(({ theme }) => ({
 
 export default function Features() {
   const [selectedItemIndex, setSelectedItemIndex] = React.useState(0);
-
+  const [receivedFiles, setReceivedFiles] = React.useState([])
+  const [sentFiles, setSentFiles] = React.useState([])
+  const [fileToSend, setFileToSend] = React.useState(null)
+  const [selectedFile, setSelectedFile] = React.useState([])
+  const [imageViewerData, setImageViewerData] = React.useState(null)
+  const [impact, setImpact] = React.useState(null)
+  
   const handleItemClick = (index) => {
     setSelectedItemIndex(index);
   };
@@ -73,9 +88,11 @@ export default function Features() {
   const selectedFeature = items[selectedItemIndex];
 
   return (
-    <Container id="features" sx={{ py: { xs: 8, sm: 16 } }}>
-      <Grid container spacing={6}>
-        <Grid item xs={12} md={6}>
+    <Container id="features" sx={{ py: { xs: 8, sm: 2 },pt: { xs: 8, sm: 20 }, px: { xs: 2 , md: 12}, height: '95vh'}} maxWidth>
+      <Grid container spacing={6} width={'100%'} sx={{ height: '100%' }}>
+
+        <Grid item xs={12} md={4}>
+
           <div>
             <Typography component="h2" variant="h4" sx={{ color: 'text.primary' }}>
               Product features
@@ -89,64 +106,7 @@ export default function Features() {
               benefits, and add-ons.
             </Typography>
           </div>
-          <Grid container item sx={{ gap: 1, display: { xs: 'auto', sm: 'none' } }}>
-            {items.map(({ title }, index) => (
-              <Chip
-                key={index}
-                label={title}
-                onClick={() => handleItemClick(index)}
-                selected={selectedItemIndex === index}
-              />
-            ))}
-          </Grid>
-          <Card
-            variant="outlined"
-            sx={{ display: { xs: 'auto', sm: 'none' }, mt: 4 }}
-          >
-            <Box
-              sx={(theme) => ({
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                minHeight: 280,
-                backgroundImage: 'var(--items-imageLight)',
-                ...theme.applyStyles('dark', {
-                  backgroundImage: 'var(--items-imageDark)',
-                }),
-              })}
-              style={{
-                '--items-imageLight': items[selectedItemIndex].imageLight,
-                '--items-imageDark': items[selectedItemIndex].imageDark,
-              }}
-            />
-            <Box sx={{ px: 2, pb: 2 }}>
-              <Typography
-                gutterBottom
-                sx={{ color: 'text.primary', fontWeight: 'medium' }}
-              >
-                {selectedFeature.title}
-              </Typography>
-              <Typography variant="body2" sx={{ color: 'text.secondary', mb: 1.5 }}>
-                {selectedFeature.description}
-              </Typography>
-              <Link
-                color="primary"
-                variant="body2"
-                sx={{
-                  fontWeight: 'bold',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  '& > svg': { transition: '0.2s' },
-                  '&:hover > svg': { transform: 'translateX(2px)' },
-                }}
-              >
-                <span>Learn more</span>
-                <ChevronRightRoundedIcon
-                  fontSize="small"
-                  sx={{ mt: '1px', ml: '2px' }}
-                />
-              </Link>
-            </Box>
-          </Card>
+          
           <Stack
             direction="column"
             spacing={2}
@@ -155,7 +115,7 @@ export default function Features() {
               justifyContent: 'center',
               alignItems: 'flex-start',
               width: '100%',
-              display: { xs: 'none', sm: 'flex' },
+              display: { sm: 'flex' },
             }}
           >
             {items.map(({ icon, title, description }, index) => (
@@ -225,7 +185,7 @@ export default function Features() {
                       {title}
                     </Typography>
                     <Typography
-                      variant="body2"
+                      variant="body1"
                       sx={{ color: 'text.secondary', mb: 1.5 }}
                     >
                       {description}
@@ -244,7 +204,7 @@ export default function Features() {
                         '&:hover > svg': { transform: 'translateX(2px)' },
                       }}
                     >
-                      <span>Learn more</span>
+                      <span>Click here</span>
                       <ChevronRightRoundedIcon
                         fontSize="small"
                         sx={{ mt: '1px', ml: '2px' }}
@@ -255,41 +215,47 @@ export default function Features() {
               </Card>
             ))}
           </Stack>
+
         </Grid>
+
         <Grid
           item
           xs={12}
-          md={6}
-          sx={{ display: { xs: 'none', sm: 'flex' }, width: '100%' }}
+          md={8}
+          sx={{ display: 'flex', width: '100%', height: '100%' }}
         >
+
+
           <Card
             variant="outlined"
             sx={{
               height: '100%',
               width: '100%',
               display: { xs: 'none', sm: 'flex' },
-              pointerEvents: 'none',
+              flexDirection: 'column',
+              overflow: 'scroll'
             }}
           >
-            <Box
-              sx={(theme) => ({
-                m: 'auto',
-                width: 420,
-                height: 500,
-                backgroundSize: 'contain',
-                backgroundImage: 'var(--items-imageLight)',
-                ...theme.applyStyles('dark', {
-                  backgroundImage: 'var(--items-imageDark)',
-                }),
-              })}
-              style={{
-                '--items-imageLight': items[selectedItemIndex].imageLight,
-                '--items-imageDark': items[selectedItemIndex].imageDark,
-              }}
-            />
+                      { selectedItemIndex == 0 && <PeerReceiverHandler receivedFiles={receivedFiles} setReceivedFiles={setReceivedFiles}/> }
+                      {
+                        selectedItemIndex == 0 && receivedFiles.map( (data) => { return <FileListItem file={data} setImageViewerData={setImageViewerData} setSelectedFile={setSelectedFile} /> } )
+                      }
+                      { selectedItemIndex == 1 && <PeerSenderHandler fileToSend={fileToSend} sentFiles={sentFiles} setSentFiles={setSentFiles} setFileToSend={setFileToSend}/>}
+                      {
+                        selectedItemIndex == 1 && sentFiles.map( (data) => { return <FileListItem file={data} setImageViewerData={setImageViewerData} setSelectedFile={setSelectedFile} /> } )
+                      }
+                      {
+                        selectedItemIndex == 2 && <CarbonFootprintHandler setCarbonData={setImpact}/>
+                      }
+                      {
+                        selectedItemIndex == 2 && <CarbonImpactAnalysis text={impact}/>
+                      }
           </Card>
+
         </Grid>
+
       </Grid>
+      { imageViewerData && <ImageViewer setImageViewerData={setImageViewerData} imageViewerData={imageViewerData} file={selectedFile} /> }
     </Container>
   );
 }

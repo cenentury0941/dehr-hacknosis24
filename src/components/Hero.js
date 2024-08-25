@@ -10,6 +10,7 @@ import Typography from '@mui/material/Typography';
 
 import { visuallyHidden } from '@mui/utils';
 import { styled } from '@mui/material/styles';
+import { useNavigate } from 'react-router-dom';
 
 const StyledBox = styled('div')(({ theme }) => ({
   alignSelf: 'center',
@@ -34,6 +35,9 @@ const StyledBox = styled('div')(({ theme }) => ({
 }));
 
 export default function Hero() {
+
+  var navigate = useNavigate()
+
   return (
     <Box
       id="hero"
@@ -66,12 +70,12 @@ export default function Hero() {
             variant="h1"
             sx={{
               display: 'flex',
-              flexDirection: { xs: 'column', sm: 'row' },
+              flexDirection: 'column',
               alignItems: 'center',
+              textAlign: 'center',
               fontSize: 'clamp(3rem, 10vw, 3.5rem)',
             }}
           >
-            Our&nbsp;latest&nbsp;
             <Typography
               component="span"
               variant="h1"
@@ -83,8 +87,9 @@ export default function Hero() {
                 }),
               })}
             >
-              products
+              Distributed
             </Typography>
+             Electronic Health Records
           </Typography>
           <Typography
             sx={{
@@ -101,27 +106,13 @@ export default function Hero() {
             direction={{ xs: 'column', sm: 'row' }}
             spacing={1}
             useFlexGap
-            sx={{ pt: 2, width: { xs: '100%', sm: 'auto' } }}
+            sx={{ pt: 2, width: { xs: '100%', sm: '50%' } }}
           >
-            <InputLabel htmlFor="email-hero" sx={visuallyHidden}>
-              Email
-            </InputLabel>
-            <TextField
-              id="email-hero"
-              hiddenLabel
-              size="small"
-              variant="outlined"
-              aria-label="Enter your email address"
-              placeholder="Your email address"
-              slotProps={{
-                htmlInput: {
-                  autoComplete: 'off',
-                  'aria-label': 'Enter your email address',
-                },
-              }}
-            />
-            <Button variant="contained" color="primary">
-              Start now
+            <Button variant="contained" color="primary" fullWidth onClick={()=>{navigate("/doctor")}}>
+              For Doctors
+            </Button>
+            <Button variant="outlined" color="primary" fullWidth onClick={()=>{navigate("/patient")}}>
+              For Patients
             </Button>
           </Stack>
           <Typography variant="caption" sx={{ textAlign: 'center' }}>

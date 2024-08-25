@@ -1,0 +1,47 @@
+.PeerConnectionContainer {
+    display: flex;
+    flex-direction: row;
+    height: 25vh;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.136);
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1vmin;
+    padding-bottom: 1vmin;
+    padding: 3vmin;
+    box-sizing: border-box;
+}
+
+.TextContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 2vmin;
+    gap: 1vmin;
+}
+
+.Title {
+    font-size: 3.9vmin;
+    padding: 0;
+    margin: 0;
+}
+
+.SubTitle {
+    font-size: 2.1vmin;
+    padding: 0;
+    margin: 0;
+}
+
+.Content {
+    font-size: 1.8vmin;
+    padding: 0;
+    margin: 0;
+}
