@@ -1,4 +1,61 @@
-# Getting Started with Create React App
+# DEHR : Distributed Electronic Health Records
+
+In our rapidly evolving digital world, healthcare systems are becoming more efficient—but there's a hidden cost.
+
+The data storage and processing demands of Electronic Health Records (EHR) are growing rapidly, and with them, so is the industry's energy consumption. The tech sector alone accounts for **3.7% of global greenhouse emissions**, rivaling the airline industry. As more medical devices hit the market, these emissions are expected to double by 2025. Our health shouldn't come at the cost of our planet.
+
+## Introducing Dehr
+
+A groundbreaking, eco-friendly approach to managing Electronic Health Records. Dehr is a distributed, peer-to-peer solution that enables patients and healthcare professionals to store, share, and access medical records directly between devices, minimizing the environmental impact of cloud storage.
+
+With **Dehr**, sharing data between patients and healthcare practitioners is a breeze. Once the data is on the healthcare provider's device, they can use **OpenText's Capture Service** for full-page Optical Character Recognition (OCR), extracting text from image data. By leveraging OpenAI's large language models, Dehr then provides concise summaries of the document, reducing the burden on healthcare professionals to parse large amounts of data.
+
+With Dehr, your medical data stays close to you, securely stored on your personal device. Share it directly with your healthcare provider—no cloud needed.
+
+## Key Features of Dehr
+
+- **Local Data Storage**: Keep your health records on your personal device for immediate access without relying on energy-hungry cloud systems.
+  
+- **QR Code Access Control**: Share and retrieve medical records with a simple scan, making it easier for both patients and professionals.
+
+- **Peer-to-Peer Data Sharing**: Securely transfer data from device to device using QR codes, ensuring privacy and protection of your information.
+
+- **AI-Driven Medical Summaries**: Get easy-to-understand summaries of your medical data, powered by advanced artificial intelligence.
+
+- **Carbon Footprint Tracking**: Monitor your environmental impact with real-time analytics showing your energy usage and carbon footprint.
+
+- **Data Security**: Your medical data is permanently stored only on your personal device. Once the transaction is complete, the document is erased from the healthcare provider's device, enhancing data security.
+
+## APIs used
+
+### OpenText Capture service
+Perform full page OCR on the received images to extract machine readable text.
+
+### Boavizta Project
+Generate Environmental impact report based on transactions performed and device used.
+
+### OpenAI
+Accept OCR data or Environmental impact data and summarize in MD formatted natural language text.
+
+![Dehr Diagram](https://raw.githubusercontent.com/cenentury0941/Pictures/main/block.png)
+
+## Dehr: Reducing Carbon Footprint in Healthcare
+
+Dehr not only keeps your data secure, but it also helps reduce the healthcare industry's carbon footprint through the principles of *reduction* and *accountability*. By storing and sharing data locally, Dehr eliminates the need for energy-intensive data centers, offering a greener, safer, and more efficient way to manage your health records.
+
+Using **Boavizta's Environmental Impact Assessment API**, Dehr also promotes individual accountability by generating environmental impact reports based on the devices used within an organization. This allows for better tracking and management of the carbon footprint.
+
+## A Greener Future for Healthcare
+
+The future of healthcare isn’t just about innovation—it’s about sustainability. With Dehr, we’re expanding our eco-friendly technology to integrate with more medical systems and devices worldwide.
+
+Our goal is to help build a healthcare system where both your health and the planet’s well-being are in harmony.
+
+**Dehr**—the future of health records, in your hands, for a greener tomorrow.
+
+-----------------------
+
+## React App Boiler Plate
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
